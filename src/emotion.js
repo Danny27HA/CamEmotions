@@ -30,8 +30,22 @@ export async function detectEmotion(input) {
 }
 
 export function toSentiment(label) {
-  const negative = ['angry', 'disgusted', 'fearful', 'sad'];
-  if (label === 'happy') return 'positivo';
-  if (negative.includes(label)) return 'negativo';
-  return 'neutro'; // neutral / surprised
+  switch (label) {
+    case 'happy':
+      return 'Está contento 😊';
+    case 'sad':
+      return 'Está triste 😢';
+    case 'angry':
+      return 'Está enojado 😠';
+    case 'disgusted':
+      return 'Tiene disgusto o desagrado 😒';
+    case 'fearful':
+      return 'Está asustado o nervioso 😨';
+    case 'surprised':
+      return 'Está sorprendido 😲';
+    case 'neutral':
+      return 'Se ve neutral o tranquilo 😐';
+    default:
+      return 'Estado desconocido 🤔';
+  }
 }
