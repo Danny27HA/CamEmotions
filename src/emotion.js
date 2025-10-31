@@ -1,4 +1,3 @@
-// src/emotion.js
 import * as faceapi from '@vladmandic/face-api';
 
 const MODEL_URL = '/models';

@@ -1,4 +1,3 @@
-// src/db.js
 import localforage from 'localforage';
 
 export const store = localforage.createInstance({
