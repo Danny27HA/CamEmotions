@@ -21,3 +21,10 @@ export async function listRecordsDesc() {
 export async function clearAll() {
   await store.clear();
 }
+
+export async function clearRecords() {
+  const db = await openDB();
+  const tx = db.transaction('records', 'readwrite');
+  tx.objectStore('records').clear();
+  await tx.done;
+}

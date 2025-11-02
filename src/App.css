@@ -1,84 +1,195 @@
-body {
-  font-family: "Segoe UI", sans-serif;
-  background: #f4f7fb;
-  color: #1c1c1c;
+/* === Reset básico === */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 16px;
+body {
+  font-family: "Poppins", sans-serif;
+  background: #0e0e10;
+  color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* === Estructura principal === */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.card {
+  background: #151518;
+  border-radius: 20px;
+  padding: 2rem 3rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  width: 90%;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* === Encabezado === */
+.header h1 {
+  font-size: 2rem;
+  color: #00bcd4;
+  font-weight: 600;
+}
+
+.header p {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 0.3rem;
   text-align: center;
 }
 
-h1 {
-  color: #3f51b5;
-}
-
-.camera-section {
-  background: white;
-  border-radius: 12px;
-  padding: 12px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+/* === Cámara === */
+.camera-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #0b0b0d;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #222;
 }
 
 video {
   width: 100%;
-  border-radius: 12px;
-  border: 1px solid #ccc;
+  max-width: 480px;
+  border-radius: 10px;
 }
 
-.controls {
+/* === Botones === */
+.buttons {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  margin-top: 12px;
+  gap: 0.8rem;
 }
 
-button {
-  background: #3f51b5;
-  color: white;
+.btn {
+  padding: 0.7rem 1.4rem;
   border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 15px;
-  transition: background 0.3s;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
-button:hover {
-  background: #2c3e91;
+.btn.primary {
+  background: #00bcd4;
+  color: #fff;
 }
 
+.btn.primary:hover {
+  background: #00a0b8;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
+}
+
+.btn.secondary {
+  background: #262626;
+  color: #bbb;
+}
+
+.btn.secondary:hover {
+  background: #333;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.btn.danger {
+  background: #c62828;
+  color: #fff;
+}
+
+.btn.danger:hover {
+  background: #b71c1c;
+  box-shadow: 0 0 10px rgba(198, 40, 40, 0.4);
+}
+
+/* === Resultados === */
 .result-card {
-  background: white;
-  margin-top: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-}
-
-.result-card img {
+  padding: 1rem 1.5rem;
+  text-align: center;
   width: 100%;
-  border-radius: 8px;
 }
 
-.history {
+.result-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+/* === Panel de emociones / historial === */
+.emotion-panel {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.emotion-panel h2 {
+  color: #00bcd4;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+/* === Historial === */
+.history-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .history-item {
-  background: white;
-  padding: 6px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: #1c1c1f;
+  border-radius: 10px;
+  padding: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.history-item:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
 }
 
 .history-item img {
   width: 100%;
-  border-radius: 6px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.history-info {
+  margin-top: 0.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+footer {
+  text-align: center;
+  color: #555;
+  font-size: 0.85rem;
+  margin-top: 1.5rem;
 }
